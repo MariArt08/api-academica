@@ -1,0 +1,27 @@
+info:
+  name: Editar Luis prof ITI copy
+  type: http
+  seq: 23
+
+http:
+  method: PUT
+  url: "{{base_url}}/estudiantes/2"
+  headers:
+    - name: Accept
+      value: application/json
+  body:
+    type: json
+    data: |
+      {
+        "nombre": "Ana Editada"
+      }
+  auth:
+    type: bearer
+    token: "{{token_profesor_isw}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

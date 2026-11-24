@@ -1,0 +1,27 @@
+info:
+  name: Editar Ana siendo Ana
+  type: http
+  seq: 24
+
+http:
+  method: PUT
+  url: "{{base_url}}/estudiantes/1"
+  headers:
+    - name: Accept
+      value: application/json
+  body:
+    type: json
+    data: |
+      {
+        "nombre": "Ana Editada"
+      }
+  auth:
+    type: bearer
+    token: "{{token_ana}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

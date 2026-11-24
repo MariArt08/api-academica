@@ -1,0 +1,14 @@
+name: local
+variables:
+  - name: base_url
+    value: http://127.0.0.1:8000/api
+  - name: token_admin
+    value: 8|6tpqBfh0e9ygK3YgYI7NcM1KzM6vtgSNnmuojGQH24912952
+  - name: token_profesor_iti
+    value: 4|0NTgdTjKryi6ZfmUtf7rd6tbUj1x07SqLHNsSZ9E604126c3
+  - name: token_profesor_isw
+    value: 5|wwy00uBTpvy8LMMpJlswMjeGfGY5bQsKGSmqAa7p77bce44f
+  - name: token_ana
+    value: 6|D0xaOOHqm0itY59q1nbueZLAldQfVvZ7UWbfDd1ibe4354dd
+  - name: token_luis
+    value: 7|QW5kZn8gOkvKdTs7VHTOQjpU7ZRG1QeN9VXGWaxAf1f1d1fe
