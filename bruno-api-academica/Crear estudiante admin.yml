@@ -1,0 +1,30 @@
+info:
+  name: Crear estudiante admin
+  type: http
+  seq: 32
+
+http:
+  method: POST
+  url: "{{base_url}}/estudiantes"
+  body:
+    type: json
+    data: |-
+      {
+        "user_id": 5,
+        "carrera_id": 1,
+        "cedula": "3-3333-3333",
+        "nombre": "Prueba",
+        "apellido": "Nueva",
+        "correo_institucional": "prueba@academica.test",
+        "activo": true
+      }
+  auth:
+    type: bearer
+    token: "{{token_admin}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
