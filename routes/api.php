@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\EstudianteController;
+
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -21,7 +23,6 @@ Route::middleware('auth:sanctum')->group(function () {
         ]);
     });
 
-    // Actividad 1
     Route::get('/profesor/dashboard', function (Request $request) {
         Gate::authorize('access-professor-dashboard');
 
@@ -30,4 +31,6 @@ Route::middleware('auth:sanctum')->group(function () {
             'user' => $request->user()->name,
         ]);
     });
+
+    Route::apiResource('estudiantes', EstudianteController::class);
 });
