@@ -20,4 +20,14 @@ Route::middleware('auth:sanctum')->group(function () {
             'user' => $request->user()->name,
         ]);
     });
+
+    // Actividad 1
+    Route::get('/profesor/dashboard', function (Request $request) {
+        Gate::authorize('access-professor-dashboard');
+
+        return response()->json([
+            'message' => 'Bienvenido al dashboard del profesor',
+            'user' => $request->user()->name,
+        ]);
+    });
 });
