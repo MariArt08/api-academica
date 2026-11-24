@@ -44,7 +44,19 @@ class EstudiantePolicy
     public function update(User $user, Estudiante $estudiante): bool
     {
 
-        return $user->can('estudiantes.editar');
+            // El administrador puede editar cualquier estudiante (si tiene el permiso).
+        if ($user->hasRole('administrador')) {
+            return $user->can('estudiantes.editar');
+        }
+
+        // El profesor solo edita estudiantes de su misma carrera.
+        if ($user->hasRole('profesor')) {
+            return $user->can('estudiantes.editar')
+                && $user->carrera_id !== null
+                && $user->carrera_id === $estudiante->carrera_id;
+        }
+
+        return false;
     }
 
     public function delete(User $user, Estudiante $estudiante): bool
