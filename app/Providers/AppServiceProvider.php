@@ -24,5 +24,10 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('access-admin-dashboard', function (User $user) {
             return $user->hasRole('administrador');
         });
+
+        // Actividad 1
+        Gate::define('access-professor-dashboard', function (User $user) {
+            return $user->hasRole('profesor');
+        });
     }
 }
