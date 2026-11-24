@@ -7,7 +7,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Estudiante extends Model
 {
-    protected $fillable = ['user_id', 'carrera_id', 'carnet', 'nombre', 'activo'];
+    protected $fillable = [
+    'user_id',
+    'carrera_id',
+    'cedula',
+    'nombre',
+    'apellido',
+    'correo_institucional',
+    'activo',
+    ];
 
     protected function casts(): array
     {

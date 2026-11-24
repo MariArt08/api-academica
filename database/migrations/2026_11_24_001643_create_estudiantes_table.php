@@ -13,10 +13,19 @@ return new class extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('carrera_id')->constrained('carreras')->restrictOnDelete();
-            $table->string('carnet', 20)->unique();
+            $table->foreignId('user_id')
+                ->unique()
+                ->constrained()
+                ->cascadeOnDelete();
+
+            $table->foreignId('carrera_id')
+                ->constrained('carreras')
+                ->restrictOnDelete();
+
+            $table->string('cedula', 30)->unique();
             $table->string('nombre', 120);
+            $table->string('apellido', 120);
+            $table->string('correo_institucional', 150)->unique();
             $table->boolean('activo')->default(true);
             $table->timestamps();
         });
